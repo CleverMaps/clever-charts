@@ -20,7 +20,7 @@ export default class InvertedFilterHistogramSelectionImpl extends FilterHistogra
 	_getInvertedSelection(histogramData, selection){
 		var minMax = histogramData.getMinMax();
 
-		return [
+		var invertedSelection = [
 			{
 				from:minMax.min,
 				to:selection[0].from
@@ -35,6 +35,8 @@ export default class InvertedFilterHistogramSelectionImpl extends FilterHistogra
 				to:minMax.max
 			}
 		];
+
+		return this.getSelectionWithPositions(histogramData, invertedSelection);
 	}
 
 	/**
