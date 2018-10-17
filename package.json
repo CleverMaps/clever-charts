@@ -1,8 +1,8 @@
 {
   "name": "clever-charts",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Simple javascript charts suited for BI applications.",
-  "main": "dist/clever-charts-1.2.1.min.js",
+  "main": "dist/clever-charts-1.2.2.min.js",
   "scripts": {
     "build": "rollup -c",
     "test": "mocha",

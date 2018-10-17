@@ -4,14 +4,7 @@
  */
 export default class HistogramSelection {
 	constructor(histogramData, selection){
-		this._selection = selection.map(s=>{
-			return Object.assign(s, {
-				position:{
-					from:histogramData.valueToPosition(s.from),
-					to:histogramData.valueToPosition(s.to)
-				}
-			});
-		});
+		this._selection = this.getSelectionWithPositions(histogramData, selection);
     }
 
 	/**
@@ -50,7 +43,7 @@ export default class HistogramSelection {
 	 * Returns true if toogle is allowed
 	 */
 	allowsToggle(){
-		throw "HistogramSelection.allowsToogle() has to be implemented";
+		throw "HistogramSelection.allowsToggle() has to be implemented";
 	}	
 
 	/**
@@ -62,6 +55,24 @@ export default class HistogramSelection {
 	getSelectionPoints(){
 		throw "HistogramSelection.getSelection() has to be implemented";
 	}  	
+
+	/**
+	 * @public
+	 * @param {Array} histogramData
+	 * @param {Array} selection
+	 * @returns {Array}
+	 * Returns modified selection with positions
+	 */
+	getSelectionWithPositions(histogramData, selection){
+		return selection.map(s=>{
+			return Object.assign(s, {
+				position:{
+					from:histogramData.valueToPosition(s.from),
+					to:histogramData.valueToPosition(s.to)
+				}
+			});
+		});
+	}
 }
 
 var SelectionTypes = {
