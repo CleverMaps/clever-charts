@@ -4,6 +4,10 @@ Simple javascript charts suited for BI applications
 
 ## Changelog
 
+### 1.2.14 > 1.2.15
+
+Add histogram config option to adjust y axis max height
+
 ### 1.2.13 > 1.2.14
 
 Adjust highlight yellow color

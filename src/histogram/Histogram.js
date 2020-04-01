@@ -44,6 +44,11 @@ class Histogram {
 		 * Height of the widget
 		 */
 		this._options.height = getOptionValue(options.height, Defaults.HEIGHT);
+		/**
+		 * @public
+		 * Height of the widget
+		 */
+		this._options.maxBarHeight = getOptionValue(options.maxBarHeight, this._options.height);
 
 		/**
 		 * @public

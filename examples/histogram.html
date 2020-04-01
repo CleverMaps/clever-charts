@@ -3,7 +3,7 @@
 
 <head>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.8.0/d3.min.js"></script>
-    <script src="../dist/clever-charts-1.2.14.min.js"></script>
+    <script src="../dist/clever-charts-1.2.15.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 </head>
 
@@ -388,6 +388,29 @@
 
         d3.json("data/histogram/sample2.json", (json) => {
             histogram8.setData(json.content, sampleSelection8);
+        });
+
+
+
+
+        // histogram 9 (external max value) ============================================================================
+        var histogram9 = new CleverCharts.Histogram({
+            width:360,
+            height:150,
+            maxBarHeight:50,
+            format:".0f",
+            selectionType:CleverCharts.Histogram.SelectionTypes.FILTER
+        });
+
+        histogram9.render(".graphs-ct");
+
+        d3.json("data/histogram/sample2.json", (json) => {
+            histogram9.setData(json.content, [{
+                from:9591,
+                to:20310
+            }]);
+
+            d3.select(".graphs-ct").style("display","block");
         });
 
     </script>

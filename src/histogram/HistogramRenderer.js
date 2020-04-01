@@ -51,7 +51,7 @@ export default class HistogramRenderer {
 		 * @private
 		 * Y axis
 		 */
-		this._yAxis = d3.scaleLinear().range([options.height, 0]);
+		this._yAxis = d3.scaleLinear().range([options.maxBarHeight, 0]);
 
 		/**
 		 * @private
@@ -262,6 +262,8 @@ export default class HistogramRenderer {
 		var data = this._histogramData.getData();
 		// var prevData = this._prevData;
 		var height = this._options.height;
+		var maxBarHeight = this._options.maxBarHeight;
+		var topMargin = height-maxBarHeight;
 
 		var y = this._yAxis;
 
@@ -276,8 +278,8 @@ export default class HistogramRenderer {
 					.attr("class", style.bar)
 					.attr("x", this._histogramData.valueToPosition(d.value))
 					.attr("width", "1")
-					.attr("y", Math.floor(y(d.volume[i])))
-					.attr("height", Math.ceil(height - y(d.volume[i])))
+					.attr("y", topMargin + Math.floor(y(d.volume[i])))
+					.attr("height", Math.ceil(maxBarHeight - y(d.volume[i])))
 			});
 		});
 	}
