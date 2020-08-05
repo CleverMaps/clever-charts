@@ -4,6 +4,10 @@ Simple javascript charts suited for BI applications
 
 ## Changelog
 
+### 1.2.15 > 1.2.16
+
+Prevent default event actions if clicked on histogram with shiftKey
+
 ### 1.2.14 > 1.2.15
 
 Add histogram config option to adjust y axis max height

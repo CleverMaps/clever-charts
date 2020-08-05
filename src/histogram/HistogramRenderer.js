@@ -185,6 +185,13 @@ export default class HistogramRenderer {
 			g.classed(style.active, false)
 		})
 
+		// prevent text selection from shiftKey + click events
+		ct.on("mousedown", ()=>{
+			if (d3.event.shiftKey) {
+				d3.event.preventDefault()
+			}
+		})
+
 		this._selectionRenderer.render(g);
 
 		this._rendered = true;
