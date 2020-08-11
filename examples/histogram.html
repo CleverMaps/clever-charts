@@ -3,7 +3,7 @@
 
 <head>
     <script src="//cdnjs.cloudflare.com/ajax/libs/d3/4.8.0/d3.min.js"></script>
-    <script src="../dist/clever-charts-1.2.15.min.js"></script>
+    <script src="../dist/clever-charts.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
 </head>
 
@@ -50,13 +50,13 @@
         ];
 
         d3.json("data/histogram/sample-compare.json", (json) => {
-            histogram.setData(json.content,sampleSelection);  
+            histogram.setData(json.content,sampleSelection);
         });
 
         d3.select(".change-selection-control").on("click", function(){
             sampleSelection[0].disabled = this.checked;
             histogram.setSelection(sampleSelection);
-        });                   
+        });
 
         histogram.on("selectionOver", (selectionIndex)=>{
             console.log("histogram 1: selectionOver:"+selectionIndex);
@@ -101,15 +101,15 @@
         histogram2.on("toggleSelection", (selectionIndex, enabled)=>{
             console.log("histogram 2: toggleSelection:"+selectionIndex+", enabled:"+enabled);
 
-        });        
+        });
 
         histogram2.on("selectionChanged", (selection)=>{
             console.log("histogram 2: selectionChanged:"+JSON.stringify(selection, null, 4));
-        });        
+        });
 
         histogram2.on("handleClick", (handleIndex, handleValue)=>{
             console.log("histogram 2: handleClick:"+handleIndex+", value: "+handleValue);
-        });        
+        });
 
         // simulate zoom
         d3.select(".zoom-control").on("click", function(){
@@ -137,13 +137,13 @@
             histogram2.showSelectionLabels();
         }).on("mouseout", function(){
             histogram2.hideSelectionLabels();
-        }); 
+        });
 
         // simulate invert
         d3.select(".invert-control").on("click", function(){
             if (this.checked){
                 histogram2.setSelectionType(CleverCharts.Histogram.SelectionTypes.INVERTED_FILTER);
-                
+
             } else {
                 histogram2.setSelectionType(CleverCharts.Histogram.SelectionTypes.FILTER);
             }

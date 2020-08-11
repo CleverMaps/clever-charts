@@ -4,6 +4,11 @@ Simple javascript charts suited for BI applications
 
 ## Changelog
 
+### 1.2.16 > 1.2.17
+
+Removed old versions from dist folder.
+Package was published to NPM registry.
+
 ### 1.2.15 > 1.2.16
 
 Prevent default event actions if clicked on histogram with shiftKey
